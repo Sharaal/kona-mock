@@ -3,9 +3,9 @@ require('dotenv-safe').config();
 const app = require('express')();
 app.disable('x-powered-by');
 
-require('@dnode/middlewares')(app, []);
+require('@dnode/middlewares')(app, [require('./middleware')]);
 
-require('@dnode/controllers')(app, [require('./controller')()]);
+require('@dnode/controllers')(app, []);
 
 if (module.parent) {
   module.exports = app;
